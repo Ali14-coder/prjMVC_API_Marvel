@@ -1,0 +1,42 @@
+﻿@model List<prjMVC_API_Marvel.Models.TblAvenger>
+
+<h2>Avengers List</h2>
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <div>@error.ErrorMessage</div>
+        }
+    </div>
+}
+
+<table class="table">
+    <thead> 
+        <tr>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var avenger in Model)
+        {
+            <tr>
+                <td>@avenger.Username</td>
+                <td>@avenger.Password</td>
+                <td>
+                    <a class="btn btn-warning " href="@Url.Action("Update", new { username = avenger.Username})">
+                        Edit</a>
+                    <a>
+                        <form method="post" action="@Url.Action("Delete", new { username = avenger.Username })" style="display:inline;">
+                            <input type="submit" class="btn btn-danger" value="Delete" onclick="return confirm('Are you sure you want to delete this avenger?')" />
+                        </form>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-primary" href="/home/create">Create New Avenger</a>
