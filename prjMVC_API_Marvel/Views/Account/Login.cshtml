@@ -1,0 +1,24 @@
+﻿@model prjMVC_API_Marvel.Models.LoginViewModel
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center">Login</h2>
+            <form asp-action="Login" method="post">
+                <div class="form-group">
+                    <label asp-for="Username"></label>
+                    <input asp-for="Username" class="form-control"/>
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" type="password"/>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

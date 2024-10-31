@@ -45,6 +45,7 @@ namespace prjMVC_API_Marvel
                 app.UseRouting();
             app.UseAuthentication();
                 app.UseAuthorization();
+            app.UseSession();
 
                 app.MapControllerRoute(
                     name: "default",
