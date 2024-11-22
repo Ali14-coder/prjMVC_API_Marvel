@@ -42,7 +42,7 @@ namespace prjMVC_API_Marvel.Controllers
 
         public async Task<IActionResult> Login(LoginViewModel model)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 try
                 {
